@@ -9,24 +9,24 @@ export const generateLibrary = async (
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
   
   const prompt = `
-    Actúa como un Consultor de Estrategia y Operaciones para la Alta Dirección (C-Level).
-    Tu objetivo es generar una biblioteca de prompts útiles EXCLUSIVAMENTE para DIRECCIÓN Y GERENCIA GENERAL.
+    Actúa como un Consultor Senior de Operaciones, Experto en Lean Manufacturing y Eficiencia de Procesos.
+    Tu objetivo es generar una biblioteca de prompts útiles EXCLUSIVAMENTE para el ÁREA DE OPERACIONES.
     
     Contexto de la solicitud:
     - Tipo de solución de IA a implementar: ${solution}
     - Sector empresarial: ${sector}
 
     REGLA CRÍTICA DE FORMATO:
-    Todos los prompts DEBEN incluir campos de reemplazo entre corchetes para que el directivo los personalice.
-    Ejemplo: "Como Director General de [NOMBRE_EMPRESA], necesito evaluar el impacto de [ESTRATEGIA] en [KPI_CLAVE]..."
+    Todos los prompts DEBEN incluir campos de reemplazo entre corchetes para que el responsable de operaciones los personalice.
+    Ejemplo: "Analiza el flujo de trabajo en la línea de [NOMBRE_PROCESO] para identificar cuellos de botella en [ETAPA_ESPECÍFICA]..."
     
     Sigue estrictamente esta estructura:
-    1. Contexto estratégico (máx 3 líneas) sobre por qué un Gerente General debería usar estas herramientas.
-    2. Lista principal de 12-15 prompts divididos en categorías como: Toma de Decisiones, Optimización Operativa, Gestión de Talento, Visión Estratégica.
-    3. 5 prompts avanzados enfocados en análisis predictivo, dashboards directivos e integración de sistemas.
-    4. 5 consejos prácticos para que un directivo obtenga los mejores resultados sin ser experto técnico.
+    1. Contexto operativo (máx 3 líneas) sobre cómo la IA optimiza el día a día en la planta o área de servicio.
+    2. Lista principal de 12-15 prompts divididos en categorías como: Optimización de Procesos, Control de Calidad, Gestión de Inventarios / Suministros, Mantenimiento y Seguridad.
+    3. 5 prompts avanzados enfocados en automatización industrial, análisis de causa raíz predictivo e integración de flujos de trabajo complejos.
+    4. 5 consejos prácticos para que un Jefe de Operaciones implemente estas plantillas para reducir costos y tiempos.
 
-    Los prompts deben sonar ejecutivos, profesionales y estar enfocados en retorno de inversión (ROI), eficiencia y liderazgo.
+    Los prompts deben ser prácticos, técnicos, orientados a la métrica (OEE, Tiempos de Ciclo, Lead Time) y la reducción de desperdicios.
   `;
 
   const response = await ai.models.generateContent({
